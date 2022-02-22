@@ -2,9 +2,8 @@
 
 import numpy as np
 
-SETS_FILENAME = 'pitch_set_strings.txt'
-
-simple_pitch_sets = [set([1,2,3]),set([1,3,4]),set([2,3,4]),set([3,4,5])]
+FULL_PITCH_SETS = 'full_pitch_sets.txt'
+SIMPLE_PITCH_SETS = 'simple_pitch_sets.txt'
 
 def create_pitch_sets(sets_filename):
 	with open(sets_filename) as file:
@@ -22,9 +21,3 @@ def create_distance_matrix(pitch_sets):
 		row = np.cumsum(row)
 		distance_matrix.append(list(row))
 	return(distance_matrix)
-
-
-
-if __name__ == "__main__":
-	full_pitch_set = create_pitch_sets(SETS_FILENAME)
-	print(create_distance_matrix(full_pitch_set))
